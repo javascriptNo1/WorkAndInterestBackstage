@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>ooxx</title>
+		<!--视口-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title></title>
+		<style type="text/css">
+			html{
+				height: 100%;
+			}
+			body{
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: 100%;
+			}
+			*{
+				margin: 0px;
+				padding: 0px;
+				list-style: none;
+			}
+			#box{
+				/*width: 400px;*/
+				/*margin: 100px auto;*/
+			}
+			ul li{
+				float: left;
+				width: 100px;
+				height: 100px;
+				/*background-color: aqua;*/
+				border: 1px solid #ccc;
+				text-align: center;
+				line-height: 100px;
+				font-size: 100px;
+				/*cursor: pointer;*/
+				/*cursor: url(images/叉.png),auto;*/
+			}
+			.clear{
+				clear: both;
+				width: 0px;
+
+			}
+			ul{
+				overflow: hidden;
+			}
+			.one li{
+				border-top:none ;
+			}
+			.three li{
+				border-bottom: none;
+			}
+			ul li:nth-child(1){
+				border-left:none ;
+			}
+			ul li:nth-child(3){
+				border-right:none ;
+			}
+			.correct{
+				color: #f00;
+			}
+			ul li span{
+				display: none;
+			}
+			 /*//媒体断点*/
+	       @media only screen and (max-width: 768px) {
+	        #box{
+	        	width: 305px;
+	        }
+
+	       }
+		</style>
+		<script src="lib/jquery.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="box">
+			<ul class="one">
+				<li>
+
+				</li>
+				<li>
+
+				</li>
+				<li>
+
+				</li>
+			</ul>
+
+			<ul class="two">
+				<li>
+
+				</li>
+				<li>
+
+
+				</li>
+				<li>
+
+				</li>
+			</ul>
+
+			<ul class="three">
+				<li>
+
+				</li>
+				<li>
+
+				</li>
+				<li>
+
+				</li>
+			</ul>
+		</div>
+
+		<script type="text/javascript">
+			var i=0;
+			let user1='○'
+			let user2='x'
+			let user1victory=0
+			let user2victory=0
+			let draw=0
+			document.getElementById("box").style.cursor="url(dist/images/勾.png),auto";
+			function fn(){
+				i++;
+				var box=document.getElementById("box");
+				this.cursor="wait";
+				if(i%2==0){
+					document.getElementById("box").style.cursor="url(dist/images/勾.png),auto";
+					$(this).html(user2).css("color","#f80a1b");
+					$(this).off("click");
+
+				}
+				else{
+					document.getElementById("box").style.cursor="url(dist/images/叉.png),auto";
+					$(this).html(user1).css("color","#06f64f");
+//					$(this).find(".error").css('display',"block")
+					$(this).off("click");
+
+				}
+				var a1=$(".one li:eq(0)").text();
+				var a2=$(".one li:eq(1)").text();
+				var a3=$(".one li:eq(2)").text();
+
+				var b1=$(".two li:eq(0)").text();
+				var b2=$(".two li:eq(1)").text();
+				var b3=$(".two li:eq(2)").text();
+
+				var c1=$(".three li:eq(0)").text();
+				var c2=$(".three li:eq(1)").text();
+				var c3=$(".three li:eq(2)").text();
+
+				var type1=a1==user1&&a2==user1&&a3==user1;
+				var type2=b1==user1&&b2==user1&&b3==user1;
+				var type3=c1==user1&&c2==user1&&c3==user1;
+
+				var type4=a1==user1&&b1==user1&&c1==user1;
+				var type5=a2==user1&&b2==user1&&c2==user1;
+				var type6=a3==user1&&b3==user1&&c3==user1;
+
+				var type7=a1==user1&&b2==user1&&c3==user1;
+				var type8=a3==user1&&b2==user1&&c1==user1;
+
+				var type9=a1==user2&&a2==user2&&a3==user2;
+				var type10=b1==user2&&b2==user2&&b3==user2;
+				var type11=c1==user2&&c2==user2&&c3==user2;
+
+				var type12=a1==user2&&b1==user2&&c1==user2;
+				var type13=a2==user2&&b2==user2&&c2==user2;
+				var type14=a3==user2&&b3==user2&&c3==user2;
+
+				var type15=a1==user2&&b2==user2&&c3==user2;
+				var type16=a3==user2&&b2==user2&&c1==user2;
+
+				console.log(i)
+				if(type1||type2||type3||type4||type5||type6||type7||type8){
+					console.log('aa')
+					setTimeout(function(){
+
+						alert("圈圈方胜");
+//						open("game.html","_self");
+						$('ul li').html('').css("color","#fff");
+
+					},10)
+					i=0;
+					$("ul li").off("click");
+					$("ul li").on('click',fn)
+				}
+				else if(type9||type10||type11||type12||type13||type14||type15||type16){
+					console.log('bb')
+					setTimeout(function(){
+
+						alert("叉叉方胜")
+						$('ul li').html('').css("color","#fff");
+
+//						open("game.html","_self");
+					},10)
+					i=0;
+					$("ul li").off("click");
+					$("ul li").on('click',fn)
+				}
+				else if(i==9){
+					console.log('cc')
+					setTimeout(function(){
+						alert("平局")
+						$('ul li').html('').css("color","#fff");
+
+//						open("game.html","_self");
+					},10)
+					i=0;
+					$("ul li").off("click");
+					$("ul li").on('click',fn)
+				}
+
+
+
+
+			}
+
+
+			$("ul li").on('click',fn)
+
+		</script>
+	</body>
+</html>

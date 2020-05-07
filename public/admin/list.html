@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>后台管理系统</title>
+
+		<link href="images/index.css" type="text/css" rel="stylesheet"/>
+		<link rel="stylesheet" href="types/list.css">
+
+		<!--引入jq-->
+		<script src="images/jquery.js"></script>
+		<!--引入模板-->
+		<script src="js/template.js"></script>
+
+		<script src="js/list.js" type="text/javascript" charset="utf-8"></script>
+
+		<!--判断用户是否已经登录-->
+		<script src="checklogin.php" type="text/javascript" charset="utf-8"></script>
+
+		<style>
+			#tbody tr .content{white-space: nowrap;text-overflow:clip;overflow:hidden;width: 100px}
+		</style>
+	</head>
+	<body>
+
+		<script src="js/nva.js"></script>
+
+			<div class="mainbox">
+
+
+				<div class="note">
+					<h4>新闻列表</h4>
+					<div class="search_form">
+						<input type="text" name="keywords" id="search" placeholder="请输入要搜索的内容"/>
+						<input type="button" id="but" value="搜索"/>
+					</div>
+					<select name="keywords" id="style">
+						<option value="">全部</option>
+						<option>html</option>
+						<option>css</option>
+						<option>javascript</option>
+						<option>Node</option>
+						<option>Mongodb</option>
+						<option>开发工具</option>
+						<option>开发环境</option>
+						<option>其他</option>
+					</select>
+
+					<table class="news_list">
+						<thead>
+							<tr>
+								<th><input type="checkbox"></th>
+								<th>分类</th>
+								<th>标题</th>
+								<!--<th>摘要</th>-->
+								<th>日期</th>
+								<th>点击率</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+						<tbody id="tbody">
+
+
+						</tbody>
+					</table>
+
+					<div class="page" id="pages">
+						<a id="fpage">上一页</a>
+						<a id="lpage">下一页</a>
+					</div>
+				</div>
+
+
+			</div>
+
+		<!--数据模板-->
+		<script type="text/html" id="molde">
+			{{each list as v i}}
+				<tr>
+					<td><input type="checkbox"></td>
+					<td>{{v.classify}}</td>
+					<td><a target="_blank" href="modify.html?id={{v._id}}">{{v.title}}</a></td>
+					<td>{{v.ctime}}</td>
+					<td>{{v.browse}} 次</td>
+					<td>
+						<a class="edit" href="edit.html?id={{v._id}}">编辑</a>
+						<a class="rebut" data-id='{{v._id}}'>删除</a>
+					</td>
+				</tr>
+			{{/each}}
+		</script>
+
+		<!--分页模板-->
+		<script type="text/html" id="pagemolde">
+			{{each list as v i}}
+				<a href="#" class="p">{{i+1}}</a>
+			{{/each}}
+		</script>
+
+	</body>
+</html>

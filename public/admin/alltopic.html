@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>后台管理系统</title>
+
+    <link href="images/index.css" type="text/css" rel="stylesheet"/>
+    <link rel="stylesheet" href="types/list.css">
+
+    <!--引入jq-->
+    <script src="images/jquery.js"></script>
+    <!--引入模板-->
+    <script src="js/template.js"></script>
+
+
+    <!--判断用户是否已经登录-->
+    <script src="checklogin.php" type="text/javascript" charset="utf-8"></script>
+
+    <style>
+        #tbody tr .content{white-space: nowrap;text-overflow:clip;overflow:hidden;width: 100px}
+    </style>
+</head>
+<body>
+
+<script src="js/nva.js"></script>
+
+<div class="mainbox">
+
+
+    <div class="note">
+        <h4>{{title}}</h4>
+        <div class="search_form">
+            <input type="text" name="keywords" v-model="keyword" id="search" placeholder="请输入要搜索的内容"/>
+            <input type="button" id="but" value="搜索"/>
+        </div>
+        <span style="display: inline-block;margin-left: 50px">分类</span>
+        <select name="keywords" id="style">
+            <option v-for="(itme,index) in classlayarr" :value="index">{{itme.maxclass}}</option>
+        </select>
+
+        <select id="minstyle" v-model="classify">
+            <option v-for="(itme,index) in child" :value="itme">{{itme}}</option>
+        </select>
+
+        <span style="display: inline-block;margin-left: 50px">是否公开</span>
+        <select id="overt" v-model="overt">
+            <option value="" selected>所有</option>
+            <option value="true">公开</option>
+            <option value="false">未公开</option>
+        </select>
+
+        <table class="news_list">
+            <thead>
+            <tr>
+                <th>出题人</th>
+                <th>分类</th>
+                <th>标题</th>
+                <th>收藏</th>
+                <th>是否公开</th>
+                <th>日期</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody id="tbody">
+            <tr v-for="(itme,index) in paperdeli.list">
+                <td>{{itme.username}}</td>
+                <td>{{itme.classify}}</td>
+                <td class="title"><a :href="'topicdeli.html?id='+itme._id+'&page='+page+'&userid='+userid">{{itme.title}}</a></td>
+                <td>{{itme.collect}}</td>
+                <td>{{itme.overt?'公开':'未公开'}}</td>
+                <td>{{itme.time}}</td>
+                <!--<td>{{itme.reportsNumber}}</td>-->
+                <td>
+                    <a class="edit" :href="'topicdeli.html?id='+itme._id">详情</a>
+                    <a class="rebut" :data-id='itme._id' :data-index="index">删除</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div class="page" id="pages">
+            <a id="fpage">上一页</a>
+            <a href="javascript:void 0">{{page+1}}/{{paperdeli.length}}</a>
+            <a id="lpage">下一页</a>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+<!--分页模板-->
+<script type="text/html" id="pagemolde">
+    {{each list as v i}}
+    <a href="#" class="p">{{i+1}}</a>
+    {{/each}}
+</script>
+
+<script src="js/vue.js"></script>
+<script src="js/alltopic.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

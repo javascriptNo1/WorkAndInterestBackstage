@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>后台管理系统</title>
+
+    <link href="images/index.css" type="text/css" rel="stylesheet"/>
+    <link rel="stylesheet" href="types/list.css">
+
+    <!--引入jq-->
+    <script src="images/jquery.js"></script>
+    <!--引入模板-->
+    <script src="js/template.js"></script>
+
+
+    <!--判断用户是否已经登录-->
+    <script src="checklogin.php" type="text/javascript" charset="utf-8"></script>
+
+    <style>
+        #tbody tr .content{white-space: nowrap;text-overflow:clip;overflow:hidden;width: 100px}
+    </style>
+</head>
+<body>
+
+<script src="js/nva.js"></script>
+
+<div class="mainbox">
+
+
+    <div class="note">
+        <h4>用户管理</h4>
+        <div class="search_form">
+            <input type="text" name="keywords" v-model="keyword" id="search" placeholder="请输入要搜索的内容"/>
+            <input type="button" id="but" value="搜索"/>
+        </div>
+        <select id="overt" v-model="overt">
+            <option value="true">黑名单用户</option>
+            <option value="false">正常用户</option>
+        </select>
+        <select id="sort" v-model="sort">
+            <option value="timestamp">时间</option>
+            <option value="">举报次数</option>
+        </select>
+        <table class="news_list">
+            <thead>
+            <tr>
+                <th>用户名</th>
+                <th>性别</th>
+                <th>收藏的题目数量</th>
+                <th>收藏的试卷数量</th>
+                <th>已做完的题目数量</th>
+                <th>已做完的试卷数量</th>
+                <th>题目和试卷被举报次数</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody id="tbody">
+            <tr v-for="(itme,index) in paperdeli.list">
+                <td>{{itme.username}}</td>
+                <td>{{itme.gender}}</td>
+                <td>{{itme.collectionlist}}</td>
+                <td>{{itme.testPaperlist}}</td>
+                <td>{{itme.havefinished}}</td>
+                <td>{{itme.havefinishedpaper}}</td>
+                <td>{{itme.Numberofreports}}</td>
+                <td>
+                    <a :href="'alltopic.html?userid='+itme.userid">查看题目</a>
+                    <a :href="'allpaper.html?userid='+itme.userid">查看试卷</a>
+                    <a v-if="overt=='false'" class="rebut" :data-id='itme._id' :data-index="index">拉黑</a>
+                    <a v-if="overt=='true'" class="rebut2" :data-id='itme._id' :data-index="index">取消拉黑</a>
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+
+        <div class="page" id="pages">
+            <a id="fpage">上一页</a>
+            <a href="javascript:void 0">{{page+1}}/{{paperdeli.length}}</a>
+            <a id="lpage">下一页</a>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+<!--分页模板-->
+<script type="text/html" id="pagemolde">
+    {{each list as v i}}
+    <a href="#" class="p">{{i+1}}</a>
+    {{/each}}
+</script>
+
+<script src="js/vue.js"></script>
+<script src="js/user.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

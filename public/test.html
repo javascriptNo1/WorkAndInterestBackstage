@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>JSONP 实例</title>
+    <!--引入jquery(远程cdn)-->
+    <script src="http://cdn.static.runoob.com/libs/jquery/1.8.3/jquery.js"></script>
+
+</head>
+<body>
+<div style="width: 200px;height: auto" id="divCustomers"></div>
+<script>
+    //使用jQuery封装好的接口
+    $.getJSON("http://www.runoob.com/try/ajax/jsonp.php?jsoncallback=?", function(data) {
+
+        var html = '<ul>';
+        for(var i = 0; i < data.length; i++)
+        {
+            html += '<li>' + data[i] + '</li>';
+        }
+        html += '</ul>';
+
+        $('#divCustomers').html(html);
+    });
+</script>
+</body>
+</html>

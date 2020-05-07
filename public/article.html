@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>文章详情</title>
+
+    <!-- 引入Bootstrap核心样式库 -->
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!--小图标-->
+    <link rel = "Shortcut Icon" href=dist/images/favicon.ico>
+
+    <!--兼容ie-->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!--自己的样式-->
+    <!--公共-->
+    <link rel="stylesheet" type="text/css" href="dist/css/index.min.css"/>
+
+    <!--单页-->
+    <link rel="stylesheet" href="dist/css/attcle.min.css">
+    <!--<style type="text/css">
+    	.cf{
+    		background-color: #A6E1EC;
+    		height: 500px;
+    	}
+    	.cr{
+    		background-color: #AA00AA;
+    		height: 500px;
+    	}
+    </style>-->
+</head>
+<body>
+<!--导航栏-->
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">
+                <p>Hello World</p>
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+            <!--文章搜索框-->
+            <!--<form class="navbar-form navbar-left">-->
+                <!--<div class="form-group">-->
+                    <!--<input id="search" type="text" class="form-control" placeholder="请输入要搜索的内容">-->
+                <!--</div>-->
+                <!--<button type="button" class="btn btn-default">搜索</button>-->
+            <!--</form>-->
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="index.html">首页</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<!--内容-->
+<div class="container le-min">
+    <div class="row le-content clear">
+        <!--左边hidden-xs-->
+        <div class="col-sm-3 cf ">
+
+
+            <!--文章锚点-->
+            <div class="panel panel-default anchorboxmax">
+                <!--显示按钮-->
+                <button id="showbut" type="button" class="btn btn-primary">
+                    <i class="glyphicon glyphicon-chevron-left"></i>
+                </button>
+                <!-- Default panel contents -->
+                <div class="panel-heading">文章要点</div>
+
+               <!--锚点列表-->
+                <ul class="list-group anchorul">
+
+
+                </ul>
+                <div class="panel-heading">文章附件</div>
+
+                <!--锚点列表-->
+                <ul class="list-group enclosure">
+
+
+                </ul>
+            </div>
+        </div>
+
+        <!--右边文章列表-->
+        <div class="col-sm-9 cr">
+
+            <!--文章详情-->
+            <div id="details">
+                <!--标题-->
+                <h2 class="title">标题</h2>
+
+                <!--内容-->
+                <div class="content">
+
+                </div>
+
+                <!--底部信息-->
+                <p class="wlistfooer">
+                    <span class="style">
+                        <img src="dist/images/newsbg01.png" alt="">
+                        <span class="classify"></span>
+                        </span>
+                    <span class="time">
+                        <img src="dist/images/newsbg02.png" alt="">
+                        <span class="times"></span>
+                    </span>
+                    <span class="hist">
+                        <img src="dist/images/newsbg04.png" alt="">
+                        <span>浏览（<span class="histsum">43</span>）</span>
+                    </span>
+                </p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<!--底部-->
+<footer class="footer">
+    <div>
+        备案号 <a target="_blank" href="http://www.miitbeian.gov.cn">粤ICP备18117292号</a>
+    </div>
+</footer>
+
+
+
+
+
+<!--引入jquery-->
+<script src="lib/jquery.js"></script>
+<!--引入bootstrap.js库-->
+<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+<!--自己的JS文件-->
+<script src="dist/js/index.min.js"></script>
+<script src="scripts/js/article.js"></script>
+
+</body>
+</html>

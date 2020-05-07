@@ -1,0 +1,181 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Online notebook</title>
+
+	  <!--小图标-->
+	  <link rel = "Shortcut Icon" href=dist/images/favicon.ico>
+	  <!-- 引入Bootstrap核心样式库 -->
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!--兼容ie-->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!--自己的样式-->
+    <link rel="stylesheet" type="text/css" href="dist/css/index.min.css"/>
+    <!--<style type="text/css">
+    	.cf{
+    		background-color: #A6E1EC;
+    		height: 500px;
+    	}
+    	.cr{
+    		background-color: #AA00AA;
+    		height: 500px;
+    	}
+    </style>-->
+  </head>
+  <body>
+    <!--导航栏-->
+    <nav class="navbar navbar-default">
+	  <div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="#">
+	      	<p>Hello World</p>
+	      </a>
+	    </div>
+
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+	  		<!--文章搜索框-->
+	      <div class="navbar-form navbar-left">
+	        <div class="form-group">
+	          <input id="search" type="text" class="form-control" placeholder="请输入关键字或日期">
+				<button type="button" class="btn btn-default searchbut">搜索</button>
+	        </div>
+
+	      </div>
+	      <ul class="nav navbar-nav navbar-right">
+	        <li><a href="game.html">游戏</a></li>
+
+	      </ul>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+    <!--内容-->
+    <div class="container le-min">
+	  <div class="row le-content">
+	     <!--左边-->
+	     <div class="col-sm-3 cf">
+			 <!--显示按钮-->
+			 <button id="showbut" type="button" class="btn btn-primary">
+				 <i class="glyphicon glyphicon-chevron-left"></i>
+			 </button>
+			 <ul class="list-group">
+				 <a class="list-group-item active" data-style="">
+					 <span class="badge allsum"></span>
+					 全部
+				 </a>
+				 <a class="list-group-item" data-style="javascript">
+					 <span class="badge javascriptsum"></span>
+					 javascript
+				 </a>
+				 <a class="list-group-item" data-style="css">
+					 <span class="badge csssum"></span>
+					 css
+				 </a>
+				 <a class="list-group-item" data-style="html">
+					 <span class="badge htmlsum"></span>
+					 html
+				 </a>
+				 <a class="list-group-item" data-style="Node">
+					 <span class="badge Nodesum"></span>
+					 Node
+				 </a>
+				 <a class="list-group-item" data-style="Mongodb">
+					 <span class="badge Mongodbsum"></span>
+					 Mongodb
+				 </a>
+				 <a class="list-group-item" data-style="开发工具">
+					 <span class="badge toolsum"></span>
+					 开发工具
+				 </a>
+				 <a class="list-group-item" data-style="开发环境">
+					 <span class="badge ambientsum"></span>
+					 开发环境
+				 </a>
+				 <a class="list-group-item" data-style="其他">
+					 <span class="badge othersum"></span>
+					 其他
+				 </a>
+			 </ul>
+	     </div>
+
+   		 <!--中间文章列表-->
+   		 <div class="col-sm-9 cr">
+
+			 <!--文章列表-->
+			 <div class="article">
+				 <!--列表项-->
+				 <ul id="wlist">
+
+
+					 <!--文章列表-->
+
+
+				 </ul>
+
+				 <!--分页按钮-->
+				 <nav class="pagebut">
+					 <ul class="pagination">
+						 <li class="firstpage">
+							 <span aria-hidden="true">&laquo;</span>
+						 </li>
+
+
+						 <!--分页-->
+
+						 <li class="lastpage">
+							 <span aria-hidden="true">&raquo;</span>
+						 </li>
+					 </ul>
+				 </nav>
+
+			 </div>
+
+
+
+		 </div>
+	  </div>
+	</div>
+
+	<!--底部-->
+	<footer class="footer">
+		<div>
+			备案号 <a target="_blank" href="http://www.beian.miit.gov.cn">粤ICP备18117292号</a>
+		</div>
+	</footer>
+
+
+
+
+
+   	<!--引入jquery-->
+    <script src="lib/jquery.js"></script>
+	<!--引入bootstrap.js库-->
+	<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+
+
+
+	<!--自己的JS文件-->
+	<!--<script src="dist/js/index.min.js"></script>-->
+	<script src="./scripts/js/index.js"></script>
+
+	<!--公共js-->
+	<script src="scripts/js/public.js"></script>
+  </body>
+</html>

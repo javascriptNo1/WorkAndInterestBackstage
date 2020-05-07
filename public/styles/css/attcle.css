@@ -1,0 +1,84 @@
+@media only screen and (max-width: 768px) {
+  .le-min .le-content .cf .list-group {
+    width: auto;
+    position: initial;
+  }
+}
+.cf .anchorboxmax {
+  position: fixed;
+  width: 20%;
+}
+.cf .anchorboxmax #showbut {
+  display: none;
+}
+.cf .anchorboxmax .anchorul a {
+  text-decoration: none;
+  color: #000;
+}
+.cf .anchorboxmax .return {
+  cursor: pointer;
+}
+@media only screen and (max-width: 768px) {
+  .cf .anchorboxmax {
+    z-index: 999;
+    right: -50%;
+    width: 35%;
+    position: fixed;
+    transition: right 0.5s;
+  }
+  .cf .anchorboxmax .anchorul {
+    border: 1px solid #f5f5f5 ;
+    border-top: none;
+    border-radius: 3px;
+  }
+  .cf #showbut {
+    z-index: 99999;
+    display: block;
+    position: fixed;
+    top: 30%;
+    right: 0;
+    padding: 11px 4px;
+  }
+}
+.cr #details .title {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.cr #details .content {
+  margin-bottom: 20px;
+}
+.cr #details .content img {
+  max-width: 90%;
+}
+@media only screen and (max-width: 768px) {
+  .cr #details .content {
+    padding-left: 0px!important;
+    padding-left: 0px;
+  }
+  .cr #details .content > pre {
+    font-size: 12px!important;
+  }
+}
+.cr .wlistfooer {
+  padding-left: 30px;
+  font-size: 12px;
+}
+.cr .wlistfooer .style {
+  color: #00aa00;
+  margin-right: 20px;
+}
+.cr .wlistfooer .style img {
+  margin-right: 5px;
+}
+.cr .wlistfooer .time img {
+  margin-right: 5px;
+}
+.cr .wlistfooer .hist {
+  float: right;
+}
+.cr .wlistfooer .hist img {
+  margin-right: 5px;
+}
+.cr .wlistfooer .hist .histsum {
+  color: #00aa00;
+}

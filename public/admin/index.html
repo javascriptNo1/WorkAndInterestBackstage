@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>后台登陆</title>
+		<script src="js/jquery.js"></script>
+		<style>
+			html,body{margin:0;padding:0;background:#26272b;}
+			form{width:500px;height:350px;margin:100px auto 0;background:#f1f2f9;text-align:center;border-radius:8px;}
+			form h3{margin:0 0 50px 0;height:50px;font:24px/50px 微软雅黑;background:#dfe0e7;border-bottom:1px solid #26272b;border-radius:8px 8px 0 0;}
+			.input1{font:16px/32px 微软雅黑;width:240px;}
+			.btn1{font:18px/36px 微软雅黑;width:160px;border:0;background:#30ae3c;border-radius:4px;color:#fff;margin-top:30px;}
+		</style>
+	</head>
+	<body>
+		<form>
+			<h3>后台登陆</h3>
+			<p>登陆名：<input id="user" type="text" name="username" class="input1"/></p>
+			<p>密&emsp;码：<input id="password" type="password" name="password" class="input1"/></p>
+			<p><input type="button" value="立即登陆" class="btn1"/></p>
+		</form>
+	</body>
+
+	<script>
+		function login() {
+            var user= $('#user').val();
+            var password= $('#password').val();
+
+            $.post('checkuser.php',{
+                "username":user,
+                "password":password
+            },function(data){
+                if(data==='1'){
+                    location.href="alltopic.html";
+                }
+                else {
+                    alert("仔细想想大兄弟");
+                }
+            })
+        }
+		$('.btn1').on('click',function(){
+            login()
+		});
+
+        $.get(`checklogin.php`, (data)=> {
+            console.log(data)
+			if (data === '1'){
+                // window.open('/admin/alltopic.html','_self')
+                location.href='/admin/alltopic.html'
+			}
+        })
+
+        $('form').on('keydown',function(e){
+            if(e.keyCode===13){
+                login()
+            }
+		})
+	</script>
+
+</html>

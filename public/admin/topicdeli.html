@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>后台管理系统</title>
+
+    <link href="images/index.css" type="text/css" rel="stylesheet"/>
+    <link rel="stylesheet" href="types/list.css">
+
+    <!--引入jq-->
+    <script src="images/jquery.js"></script>
+    <!--引入模板-->
+    <script src="js/template.js"></script>
+
+
+
+    <!--判断用户是否已经登录-->
+    <script src="checklogin.php" type="text/javascript" charset="utf-8"></script>
+
+    <style>
+        #tbody tr .content{white-space: nowrap;text-overflow:clip;overflow:hidden;width: 100px}
+        .content{
+           padding: 50px;
+           width: 36%;
+           margin: 0 auto;
+        }
+        .answar{
+            color: #00a0e9;
+        }
+        .content button{
+            width: 20%;
+            padding: 10px 20px;
+            margin: 0 auto;
+        }
+        .img img{
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<script src="js/nva.js"></script>
+
+<div class="mainbox">
+
+
+    <div class="note">
+        <h4>试题详情</h4>
+        <div class="content">
+            <div>{{topicdeli.title}}</div>
+            <ul>
+                <li :class="itme.answar?'answar':''" v-for="itme in topicdeli.options">{{itme.message}}</li>
+            </ul>
+            <div class="img">
+                <img :src="topicdeli.assets" alt="">
+            </div>
+            <a href="javascript:(history.go(-1))">
+                <button>返回</button>
+            </a>
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<!--分页模板-->
+<script type="text/html" id="pagemolde">
+    {{each list as v i}}
+    <a href="#" class="p">{{i+1}}</a>
+    {{/each}}
+</script>
+
+<script src="js/vue.js"></script>
+<script src="js/topicdeli.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

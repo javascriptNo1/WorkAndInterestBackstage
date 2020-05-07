@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>文章详情</title>
+		<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<!--判断用户是否已经登录-->
+		<script src="checklogin.php" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<h1 id="title"></h1>
+		<p id="time">时间：<span></span></p>
+		<p id="author">作者：<span></span></p>
+		<p id="content"></p>
+	</body>
+	
+	<script type="text/javascript">
+		$(function(){
+			var id=location.href.split('=')[1];
+			console.log(id)
+			$.get('modify.php?id='+id,function(data){
+				$('#title').html(data.title);
+				$('#time span').html(data.ctime);
+				$('#author span').html(data.author);
+				$('#content').html(data.content);
+			})
+		})
+		
+		
+	</script>
+</html>

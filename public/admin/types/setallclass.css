@@ -1,0 +1,11 @@
+.content{
+    /*min-height: 500px;*/
+    background: #fff;
+}
+.classbox{
+    margin-top: 50px;
+    float: left;
+    /*width: 22%;*/
+    padding: 0 5%;
+    font-size: 16px;
+}
