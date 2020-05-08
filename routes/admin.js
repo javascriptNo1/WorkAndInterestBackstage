@@ -48,13 +48,12 @@ router.post("/checkuser.php",function(req,res){
             res.send("1");
         }
         else{
-            res.send("0");
-            // let a=new usermodel();
-            // a.user=user;
-            // a.password=password;
-            // a.save(function(err){
-            //     res.send("0");
-            // });
+            let a=new usermodel();
+            a.user=user;
+            a.password=password;
+            a.save(function(err){
+                 res.send("0");
+            });
         }
     });
 
